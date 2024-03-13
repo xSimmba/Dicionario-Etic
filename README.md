@@ -1,0 +1,2 @@
+# Dicionario-Etic
+Simple dictionary
