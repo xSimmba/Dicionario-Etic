@@ -3,10 +3,11 @@ const searchButton = document.getElementById('submit');
 
 // Adicionando um evento de click para ele
 searchButton.addEventListener('click', function () {
+    preventDefault()
     // Buscando e referenciando o valor do método selecionado
     const method = "GET";
     // Definindo a URL da API
-    const apiUrl = 'http://localhost:8001/api/search/';
+    const apiUrl = 'http://localhost:8001/search/';
     // Definindo a função 'call' passando o método e a URL da API
     const call = async (method, apiUrl) => {
         // Utilizando o método fetch para fazer a requisição
@@ -31,10 +32,6 @@ searchButton.addEventListener('click', function () {
                 response.json().then(data => {
                     // Buscando e referenciando o elemento 'responses'
                     const responses = document.querySelector('.palavra');
-                    // Criando um novo elemento 'div'
-                    const responseElement = document.createElement('div');
-                    // Definindo o conteúdo do elemento 'div' com a resposta da requisição
-                    responseElement.innerHTML = JSON.stringify(data.message);
                     // Adicionando o elemento 'div' ao elemento 'responses'
                     responses.innertext= //palavra//;
                 });

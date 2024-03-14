@@ -8,4 +8,5 @@ with open('EDMTDictionary.json') as f:
 
 @app.get("/search/")
 def get_data():
+    print(data)
     return data
