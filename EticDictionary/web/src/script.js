@@ -1,12 +1,12 @@
 // Buscando e referenciando o botão 'request-button'
-const searchButton = document.getElementById('search');
+const searchButton = document.getElementById('submit');
 
 // Adicionando um evento de click para ele
-searchButton.addEventListener('keydown', function () {
+searchButton.addEventListener('click', function () {
     // Buscando e referenciando o valor do método selecionado
     const method = "GET";
     // Definindo a URL da API
-    const apiUrl = 'http://localhost:8001/api/';
+    const apiUrl = 'http://localhost:8001/api/search/';
     // Definindo a função 'call' passando o método e a URL da API
     const call = async (method, apiUrl) => {
         // Utilizando o método fetch para fazer a requisição
