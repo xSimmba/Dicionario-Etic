@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  web:
+    build:
+      context: web
+      dockerfile: Dockerfile
+    ports: 
+      - "8000:8000"
+
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile
+    ports: 
+      - "8001:8001"
