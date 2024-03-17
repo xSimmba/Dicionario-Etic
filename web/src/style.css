@@ -1,47 +1,101 @@
-body {
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    height: 100vh;
-    background-color: #cecece;
+@font-face {
+    font-family: GothamBook;
+    src: url(assets/Gotham-Book.otf);
+}
+@font-face {
+    font-family: GothamBold;
+    src: url(assets/Gotham-Bold.otf);
+}
+@font-face {
+    font-family: GothamBlack;
+    src: url(assets/Gotham-Black.otf);
 }
 
-header{
-    height: fit-content;
-    margin-bottom: 5%;
+html{
+    background-color: #211856;
 }
-
-section{
-    display: flex;
+h1{
+    font-family: GothamBold;
+    font-size: 5vh;
 }
-
-.top{
-    flex-direction: row;
-    height: fit-content;
+a{
+    font-family: GothamBook;
+    float: right;
+    font-size: 3.5vh;
+    color: #fff;
+    margin: 3.5vh;
+}
+p{
+    font-family: GothamBook;
+    font-size: 3vh;
+}
+em{
+    color: #32E9FF;
+    font-family: GothamBlack;
+    font-style: normal;
+}
+input{
+    width: 70vh;
+    height: 6vh;
+    font-family: GothamBook;
+    font-size: 3.5vh;
+}
+label{
+    font-family: GothamBook;
+    font-size: 3.5vh;
+    color: #fff;
+    text-align: left;
+    display: inline-block;
+    width: 70vh;
+}
+.header{
     width: 100%;
-    justify-content: center;
+}
+.hero{
+    display: flex;
     align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+.search{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 6vh;
 }
 
-.search-container {
-    flex-direction: row;
+.footer{
+    position: absolute;
+    bottom: 0;
 }
-.search-container input[type="text"] {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
+
+.footer img {
+    transition: transform 500ms ease;
+    transform: translateY(0px);
+    height: auto;
+    margin-left: 50px;
 }
-.search-container input[type="submit"] {
-    padding: 10px;
-    margin-top: 5px;
-    background-color: #272635;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+ #l1 {
+    transform: translateY(15px);
+}
+#l3{
+    transform: translateY(15px);
+}
+#l4{
+    transform: translateY(30px);
+}
+#l5{
+    transform: translateY(45px);
+}
+#l6{
+    transform: translateY(15px);
+}
+#l7{
+    transform: translateY(30px);
+}
+#l8{
+    transform: translateY(15px);
+}
+.footer img:hover{
+    transform: translateY(50px);
 }
