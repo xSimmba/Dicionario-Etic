@@ -105,3 +105,21 @@ footerImages.forEach((image, index) => {
     // Append the style element to the document head
     document.head.appendChild(style);
 });
+
+const infobox = document.getElementById('info-container');
+const infowords = document.createElement('p');
+infowords.className = 'infowords';
+infowords.innerText = "This is a school project which is a basic dictionary using HTML, CSS, JavaScript, Python, and Docker";
+infobox.appendChild(infowords);
+
+let isVisible = false; // Flag to track visibility
+
+infobox.addEventListener('click', () => {
+    if (isVisible) {
+        infowords.style.display = 'none'; // Hide infowords
+        isVisible = false;
+    } else {
+        infowords.style.display = 'block'; // Show infowords
+        isVisible = true;
+    }
+});
