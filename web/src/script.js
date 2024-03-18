@@ -17,6 +17,37 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+const word_day = document.getElementById('word_day')
+word_day.onclick = () => {
+    const apiUrl = 'http://localhost:8001/word_ot_day';
+    // const div = document.createElement('div')
+    // word_day.appendChild(div)
+    // div.className = "dayW"
+    // const ul = document.createElement('ul')
+    // div.appendChild(ul)
+    // wdt = ["word" ,"definition", "type"]
+
+    // wdt.forEach(element => {
+    //     const li = document.createElement('li')
+    //     ul.appendChild(li)
+    //     li.id = element
+    // });
+
+    fetch(apiUrl)
+        .then(response =>{
+            if (!response.ok){
+                throw new Error('Error fetching data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            word_of_day(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
 // Function to fetch data from API
 function fetchAPI(inputValue) {
     const apiUrl = 'http://localhost:8001/search?word=' + encodeURIComponent(inputValue);
@@ -53,6 +84,15 @@ function clearContent() {
     responses.textContent = '';
     type.textContent = '';
     definitions.textContent = '';
+}
+
+function word_of_day(data){
+    const response = document.querySelector('#response2');
+    const definition = document.querySelector(' #definition2');
+    const type = document.querySelector('#type2');
+    response.innerText = data.word;
+    type.innerText = data.type;
+    definition.innerText = data.description;
 }
 // Get all footer images
 const footerImages = document.querySelectorAll('.footer img');
