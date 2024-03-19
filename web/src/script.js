@@ -17,6 +17,37 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+let timerId;
+
+const word_day = document.getElementById('word_day')
+word_day.onclick = () => {
+    const apiUrl = 'http://localhost:8001/word_ot_day';
+    fetch(apiUrl)
+        .then(response =>{
+            if (!response.ok){
+                throw new Error('Error fetching data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            word_of_day(data);
+            const word_ot_day = document.querySelector('.dayW');
+            word_ot_day.style.display = "block";
+
+            if (timerId) {
+                clearTimeout(timerId);
+            }
+
+            timerId = setTimeout(() => {
+                word_ot_day.style.display = "none";
+            }, 10000); 
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+}
+
 // Function to fetch data from API
 function fetchAPI(inputValue) {
     const apiUrl = 'http://localhost:8001/search?word=' + encodeURIComponent(inputValue);
@@ -54,6 +85,25 @@ function clearContent() {
     type.textContent = '';
     definitions.textContent = '';
 }
+
+function word_of_day(data) {
+    const response = document.getElementById('response2');
+    const definition = document.getElementById('definition2');
+    const type = document.getElementById('type2');
+
+    // Check if elements exist before setting textContent
+    if (response && definition && type) {
+        response.textContent = data.word;
+        type.textContent = data.type;
+        definition.textContent = data.description;
+    } else {
+        console.error("One or more elements not found in the DOM.");
+        console.log(response);
+        console.log(definition);
+        console.log(type);
+    }
+}
+
 // Get all footer images
 const footerImages = document.querySelectorAll('.footer img');
 
