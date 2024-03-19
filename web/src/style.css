@@ -25,6 +25,7 @@ h1 {
     margin-top: 0;
 }
 h3 {
+    
     font-family: GothamBook;
     float: right;
     font-size: 3.5vh;
@@ -39,8 +40,6 @@ p {
     color: #fff;
     margin: 3.5vh;
     text-decoration: none;
-    border-width: 3px;
-    border-color: #000000;
 }
 
 
@@ -136,6 +135,21 @@ ul li {
     display: none;
 }
 
+.info{
+    position: absolute;
+    top: 29%;
+    left: 0;
+    width: 20%;
+    margin-left: 5%;
+    max-width: 70vh;
+    background: #fff;
+    padding: 16px;
+    box-sizing: border-box;
+    max-height: 35vh;
+    overflow: auto;
+    display: none;
+}
+
 
 .footer {
     position: absolute;
@@ -149,5 +163,6 @@ ul li {
 }
 
 .infowords{
-    color: white;
+    color: black;
+    font-size: 16px;
 }

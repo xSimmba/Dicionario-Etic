@@ -156,20 +156,20 @@ footerImages.forEach((image, index) => {
     document.head.appendChild(style);
 });
 
+let timerId2;
 const infobox = document.getElementById('info-container');
-const infowords = document.createElement('p');
-infowords.className = 'infowords';
-infowords.innerText = "This is a school project which is a basic dictionary using HTML, CSS, JavaScript, Python, and Docker";
-infobox.appendChild(infowords);
+infobox.onclick = () =>{
+    const info = document.querySelector('.info')
+    const infowords = document.querySelector('.infowords')
+    infowords.innerText = "This is a school project which is a basic dictionary using HTML, CSS, JavaScript, Python, and Docker";
+    info.style.display = "block";
 
-let isVisible = false; // Flag to track visibility
-
-infobox.addEventListener('click', () => {
-    if (isVisible) {
-        infowords.style.display = 'none'; // Hide infowords
-        isVisible = false;
-    } else {
-        infowords.style.display = 'block'; // Show infowords
-        isVisible = true;
+    if (timerId) {
+        clearTimeout(timerId);
     }
-});
+
+    timerId2 = setTimeout(() => {
+        info.style.display = "none";
+    }, 10000); 
+}
+
