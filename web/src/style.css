@@ -50,10 +50,26 @@ em {
     font-style: normal;
 }
 input {
-    width: 70vh;
+    width: 74vh;
     height: 6vh;
     font-family: GothamBook;
     font-size: 3.5vh;
+}
+#mGlass{
+    position: absolute;
+    bottom: 67%;
+    right: 27.5%;    
+}
+#dropshadow{
+    position: relative;
+    z-index: -1;
+    top: -46px;
+    right: -24px;
+}
+#dropshadowinfo{
+    position: absolute;
+    z-index: -1;
+    
 }
 label {
     font-family: GothamBook;
@@ -74,6 +90,7 @@ ul li {
 }
 .hero {
     display: flex;
+    width: 100%;
     align-items: center;
     flex-direction: column;
     color: #fff;
