@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let timerId;
 
-const word_day = document.getElementById('word_day')
 word_day.onclick = () => {
     const apiUrl = 'http://localhost:8001/word_ot_day';
     fetch(apiUrl)
@@ -33,19 +32,27 @@ word_day.onclick = () => {
             word_of_day(data);
             const word_ot_day = document.querySelector('.dayW');
             word_ot_day.style.display = "block";
+            
+            // Show timer
+            const timerElement = document.createElement('span');
+            timerElement.textContent = '10'; // Initial value
+            word_ot_day.appendChild(timerElement);
 
-            if (timerId) {
-                clearTimeout(timerId);
-            }
+            let count = 10; // Timer duration in seconds
 
-            timerId = setTimeout(() => {
-                word_ot_day.style.display = "none";
-            }, 10000); 
+            // Start countdown
+            const countdown = setInterval(() => {
+                count--;
+                timerElement.textContent = count.toString();
+                if (count <= 0) {
+                    clearInterval(countdown);
+                    word_ot_day.style.display = "none";
+                }
+            }, 1000);
         })
         .catch(error => {
             console.error('Error:', error);
         });
-
 }
 
 // Function to fetch data from API
@@ -158,18 +165,27 @@ footerImages.forEach((image, index) => {
 
 let timerId2;
 const infobox = document.getElementById('info-container');
+
 infobox.onclick = () =>{
     const info = document.querySelector('.info')
     const infowords = document.querySelector('.infowords')
     infowords.innerText = "This is a school project which is a basic dictionary using HTML, CSS, JavaScript, Python, and Docker";
     info.style.display = "block";
 
-    if (timerId) {
-        clearTimeout(timerId);
-    }
+    // Show timer
+    const timerElement = document.createElement('span');
+    timerElement.textContent = '10'; // Initial value
+    info.appendChild(timerElement);
 
-    timerId2 = setTimeout(() => {
-        info.style.display = "none";
-    }, 10000); 
+    let count = 10; // Timer duration in seconds
+
+    // Start countdown
+    const countdown = setInterval(() => {
+        count--;
+        timerElement.textContent = count.toString();
+        if (count <= 0) {
+            clearInterval(countdown);
+            info.style.display = "none";
+        }
+    }, 1000);
 }
-
