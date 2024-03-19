@@ -3,7 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional, List, Dict, Any
 from difflib import SequenceMatcher
 import json
+from asyncio import sleep
+import time
 import random
+
 
 app = FastAPI()
 
@@ -43,16 +46,31 @@ with open('EDMTDictionary.json') as f:
 # Enable CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8000", "http://localhost:8001"],
+    allow_origins=["http://localhost:8000"],
     allow_credentials=True,
     allow_methods=["GET"],
     allow_headers=["*"],
 )
 
+# Global variable to store the last search timestamp
+last_search_timestamp = 0
+
 @app.get("/search")
 async def search(word: Optional[str] = None) -> Dict[str, Any]:
+    global last_search_timestamp
+
     if word is None:
         raise HTTPException(status_code=400, detail="Please provide a 'word' parameter.")
+
+    current_timestamp = time.time()
+
+    # Check if less than a second has passed since the last search
+    if current_timestamp - last_search_timestamp < 1:
+        # Sleep for the remaining time to make it at least one second
+        await sleep(1 - (current_timestamp - last_search_timestamp))
+
+    # Update the last search timestamp
+    last_search_timestamp = time.time()
 
     # Get the most similar entry based on the provided word
     similar_entry = get_most_similar_entry(word, data)

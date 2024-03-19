@@ -55,6 +55,22 @@ input {
     font-family: GothamBook;
     font-size: 3.5vh;
 }
+#mGlass{
+    position: absolute;
+    bottom: 67%;
+    right: 27.5%;    
+}
+#dropshadow{
+    position: relative;
+    z-index: -1;
+    top: -46px;
+    right: -24px;
+}
+#dropshadowinfo{
+    position: absolute;
+    z-index: -1;
+    
+}
 label {
     font-family: GothamBook;
     font-size: 3.5vh;
@@ -74,9 +90,11 @@ ul li {
 }
 .hero {
     display: flex;
+    width: 100%;
     align-items: center;
     flex-direction: column;
     color: #fff;
+    width: 100%;
 }
 .search {
     display: flex;
@@ -124,21 +142,6 @@ ul li {
     bottom: -70px;
     overflow: hidden;
     white-space: nowrap;
-}
-#l1, #l3, #l6, #l8, #l11, #l13, #l16, #l18, #l21, #l23, #l26, #l28, #l31, #l33, #l36 {
-    transform: translateY(15px);
-}
-
-#l4, #l7, #l12, #l15, #l17, #l22, #l25, #l27, #l32, #l35 {
-    transform: translateY(30px);
-}
-
-#l5, #l9, #l14, #l19, #l24, #l29, #l34 {
-    transform: translateY(45px);
-}
-
-#l2, #l10, #l20, #l30, #l37 {
-    transform: translateY(22px);
 }
 .footer img {
     height: auto;
