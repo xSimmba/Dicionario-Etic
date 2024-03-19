@@ -91,6 +91,23 @@ ul li {
     overflow: auto;
     display: none;
 }
+
+.dayW{
+    position: absolute;
+    top: 29%;
+    right: 0;
+    width: 20%;
+    margin-left: 5%;
+    max-width: 70vh;
+    background: #fff;
+    padding: 16px;
+    box-sizing: border-box;
+    max-height: 35vh;
+    overflow: auto;
+    display: none;
+}
+
+
 .footer {
     position: absolute;
     bottom: -70px;
