@@ -5,6 +5,8 @@ from difflib import SequenceMatcher
 import json
 from asyncio import sleep
 import time
+import random
+
 
 app = FastAPI()
 
@@ -77,6 +79,14 @@ async def search(word: Optional[str] = None) -> Dict[str, Any]:
         raise HTTPException(status_code=404, detail="No similar entry found for the provided word.")
 
     return similar_entry
+
+@app.get("/word_ot_day")
+async def word_ot_day() -> Dict[str, Any]:
+    if not data:
+        raise HTTPException(status_code=404, detail="No entries found.")
+
+    random_index = random.randint(0, len(data) - 1)
+    return data[random_index]
 
 if __name__ == "__main__":
     import uvicorn
