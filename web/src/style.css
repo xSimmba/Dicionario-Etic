@@ -24,7 +24,7 @@ h1 {
     font-size: 5vh;
     margin-top: 0;
 }
-a {
+h3 {
     font-family: GothamBook;
     float: right;
     font-size: 3.5vh;
@@ -32,6 +32,17 @@ a {
     margin: 3.5vh;
     text-decoration: none;
 }
+p {
+    font-family: GothamBook;
+    float: right;
+    font-size: 3.5vh;
+    color: #fff;
+    margin: 3.5vh;
+    text-decoration: none;
+    border-width: 3px;
+    border-color: #000000;
+}
+
 
 em {
     color: #32E9FF;
@@ -131,4 +142,8 @@ ul li {
 .footer img {
     height: auto;
     padding: 25px;
+}
+
+.infowords{
+    color: white;
 }
